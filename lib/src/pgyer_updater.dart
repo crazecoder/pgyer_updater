@@ -16,17 +16,19 @@ class PgyerUpdater {
     required String appKey,
     required String versionName,
   }) async {
-    final url = Uri.parse("https://www.pgyer.com/apiv2/app/check");
-    final httpClient = HttpClient();
-    try {
-      final request = await httpClient.postUrl(url);
-      request.headers.set(HttpHeaders.contentTypeHeader, "application/json");
-
-      request.write(jsonEncode({
+    final url = Uri(
+      scheme: "http",
+      host: "www.pgyer.com",
+      path: "/apiv2/app/check",
+      queryParameters: {
         "_api_key": apiKey,
         "appKey": appKey,
         "buildVersion": versionName,
-      }));
+      },
+    );
+    final httpClient = HttpClient();
+    try {
+      final request = await httpClient.postUrl(url);
       HttpClientResponse response = await request.close();
       if (response.statusCode == 200) {
         final responseBody = await response.transform(utf8.decoder).join();
