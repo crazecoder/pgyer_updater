@@ -49,7 +49,7 @@ class PgyerUpdater {
     }
     return null;
   }
-
+  /// 弹窗提醒，下载安装自行实现
   static void showUpdateDialog(
     BuildContext context, {
     VersionResult? versionResult,

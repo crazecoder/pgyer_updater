@@ -1,4 +1,5 @@
 # pgyer_updater
+[![package](https://img.shields.io/pub/v/pgyer_updater.svg)](https://pub.dev/packages/pgyer_updater)
 
 flutter蒲公英应用更新插件，使用api实现，理论上无平台限制，仅弹窗提醒，下载安装可拿到versionResult自行实现
 
